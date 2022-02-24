@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             num2=0.0
             result.text=""
             operacion= VACIO
+            proceso.text=""
         }
 
         igual.setOnClickListener {
@@ -50,17 +51,24 @@ class MainActivity : AppCompatActivity() {
             num1=this.result.text.toString().toDouble()
             operacion=VACIO
         }
-
+        punto.setOnClickListener {
+            result?.text= "${result?.text}."
+            if(operacion== VACIO){
+                num1=result.text.toString().toDouble()
+            }
+            else
+                num2=result.text.toString().toDouble()
+        }
     }
+
+
     private fun numeroPresionado(digito: String){
         result?.text= "${result?.text}$digito"
         if(operacion== VACIO){
             num1=result.text.toString().toDouble()
-            proceso?.text= "${proceso?.text}$num1"
         }
         else
             num2=result.text.toString().toDouble()
-            proceso?.text= "${proceso?.text}$num2"
     }
     private fun operacionPresionada(operacion: Int){
         this.operacion=operacion
@@ -69,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         else if (operacion==2) signo= "-"
         else if (operacion==3) signo= "*"
         else signo= "/"
-        proceso?.text= "${proceso?.text}$signo"
+        proceso?.text= "${proceso?.text}$num1$signo"
         result.text=""
     }
     companion object{
