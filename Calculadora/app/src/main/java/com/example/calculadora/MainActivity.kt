@@ -8,6 +8,7 @@ class MainActivity : AppCompatActivity() {
     private var num1: Double = 0.0
     private var num2: Double = 0.0
     private var operacion: Int=0
+    private var cantsig: Int=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
